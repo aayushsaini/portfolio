@@ -36,16 +36,19 @@ const TimeDisplay = () => {
           const now = new Date();
           const hours = now.getHours();
 
+          if (now.getDay() === 0) return '🏖️'; // Sunday
+          if (now.getDay() === 6) return '🍻'; // Saturday
+
           if (hours >= 6 && hours < 7) return '🌅'; // Sunrise
-          if (hours >= 7 && hours < 10) return '🍳'; // Breakfast
-          if (hours >= 10 && hours < 13) return '💻'; // Coding
-          if (hours >= 13 && hours < 15) return '🍽️'; // Lunch
+          if (hours >= 7 && hours < 10) return '🥣'; // Breakfast
+          if (hours >= 10 && hours < 13) return '🧑‍💻'; // Coding
+          if (hours >= 13 && hours < 15) return '🍕'; // Lunch
           if (hours >= 15 && hours < 16) return '📅'; // Meetings
-          if (hours >= 16 && hours < 18) return '💼'; // Work
-          if (hours >= 18 && hours < 19) return '🚗'; // Commuting
-          if (hours >= 19 && hours < 20) return '🍽️'; // Dinner
-          if (hours >= 20 && hours < 22) return '🎬'; // Movie or YouTube
-          if (hours >= 22 || hours < 6) return '💤'; // Sleep
+          if (hours >= 16 && hours < 18) return '🧑‍💻'; // Work
+          if (hours >= 18 && hours < 19) return '🚌'; // Commuting
+          if (hours >= 19 && hours < 20) return '🍔'; // Dinner
+          if (hours >= 20 && hours < 22) return '📺'; // Movie or YouTube
+          if (hours >= 22 || hours < 6) return '😴'; // Sleep
 
           return '';
         })()}
@@ -53,6 +56,9 @@ const TimeDisplay = () => {
           {(() => {
         const now = new Date();
         const hours = now.getHours();
+        
+        if (now.getDay() === 0) return 'Sundaying, chill day!!';
+        if (now.getDay() === 6) return 'Saturday, party time!!';
 
         if (hours >= 6 && hours < 7) return 'Sunrise, good morning!!';
         if (hours >= 7 && hours < 10) return 'Breakfast';

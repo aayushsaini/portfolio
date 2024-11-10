@@ -19,7 +19,7 @@ const PersonalProjects = () => {
   return (
     <section className='mt-[80px]'>
       <h2 className="text-2xl font-bold mb-8 text-white">
-        Personal Projects <span className="text-gray-500 text-sm cursor-pointer" onClick={() => setShowMore(!showMore)}>[{ !showMore ? 'show more' : 'show less'}]</span>
+        <span className='text-purple-500'>&gt;</span> Personal Projects <span className="text-gray-500 text-sm cursor-pointer" onClick={() => setShowMore(!showMore)}>[{ !showMore ? 'show more' : 'show less'}]</span>
       </h2>
 
       <div className="grid gap-8">
