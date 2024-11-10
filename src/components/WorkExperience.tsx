@@ -40,16 +40,16 @@ const WorkExperience = () => {
 
       <div className="space-y-8">
         {experiences.map((exp, index) => (
-          <div key={index} className="border-l-2 border-gray-800 pl-6 relative">
+            <div key={index} className={`pl-6 relative border-l-2 border-gray-800`}>
             <div className="absolute w-3 h-3 bg-green-500 rounded-full -left-[7px] top-1.5"></div>
-            <h3><span className="text-green-500 font-medium mb-1 font-extrabold">{exp.company}</span> | {exp.role}</h3>
+            <h3><span className="text-green-500 font-bold mb-1">{exp.company}</span> | {exp.role}</h3>
             <p className="text-sm text-gray-500 mb-4">{exp.period}</p>
             {showMore && (<p className="mb-4 whitespace-pre-line leading-relaxed">{exp.description}</p>)}
             <div className="mb-2">
               <span className="text-sm text-gray-500">Technologies worked with:</span>
             </div>
             <TechStack technologies={exp.technologies} />
-          </div>
+            </div>
         ))}
       </div>
     </section>

@@ -16,6 +16,13 @@ export const SKILLS = {
   css: 'CSS',
   figma: 'Figma',
   nextjs: 'Nextjs',
+  tensorflow: 'TensorFlow',
+  computerVision: 'ComputerVision',
+  firebase: 'Firebase',
+  heroku: 'Heroku',
+  googleSheets: 'GoogleSheets',
+  location: 'Location',
+  webScraping: 'WebScraping',
 };
 
 const TechStack: React.FC<TechStackProps> = ({ technologies }) => {
@@ -43,6 +50,20 @@ const TechStack: React.FC<TechStackProps> = ({ technologies }) => {
         return <img src="https://img.icons8.com/color/48/000000/figma.png" alt="Figma" className="w-6 h-6" />;
       case SKILLS.nextjs.toLowerCase():
         return <img src="https://img.icons8.com/?size=100&id=MWiBjkuHeMVq&format=png&color=000000" alt="Nextjs" className="w-6 h-6" />;
+      case SKILLS.tensorflow.toLowerCase():
+        return <img src="https://img.icons8.com/?size=100&id=fTkqveCX0blI&format=png&color=000000" alt="TensorFlow" className="w-6 h-6" />;
+      case SKILLS.computerVision.toLowerCase():
+        return <img src="https://img.icons8.com/?size=100&id=bpip0gGiBLT1&format=png&color=000000" alt="Computer Vision" className="w-6 h-6" />;
+      case SKILLS.firebase.toLowerCase():
+        return <img src="https://img.icons8.com/?size=100&id=62452&format=png&color=000000" alt="Firebase" className="w-6 h-6" />;
+      case SKILLS.heroku.toLowerCase():
+        return <img src="https://img.icons8.com/?size=100&id=31085&format=png&color=000000" alt="Heroku" className="w-6 h-6" />;
+      case SKILLS.googleSheets.toLowerCase():
+        return <img src="https://img.icons8.com/?size=100&id=30461&format=png&color=000000" alt="Google Sheets" className="w-6 h-6" />;
+      case SKILLS.location.toLowerCase():
+        return <img src="https://img.icons8.com/?size=100&id=13800&format=png&color=000000" alt="Location" className="w-6 h-6" />;
+      case SKILLS.webScraping.toLowerCase():
+        return <img src="https://img.icons8.com/?size=100&id=ITIhejPZQD5g&format=png&color=000000" alt="Web Scraping" className="w-6 h-6" />;
       default:
         return null;
     }

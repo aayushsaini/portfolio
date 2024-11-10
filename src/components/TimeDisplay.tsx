@@ -30,7 +30,7 @@ const TimeDisplay = () => {
 
   return (
     <span className="text-gray-400">
-      <span className='text-green-400 px-2'>●</span> IST: {istTime}
+      <span className='text-green-400 px-2'>●</span> IST {istTime}
       <span className="ml-2 relative group">
         {(() => {
           const now = new Date();
