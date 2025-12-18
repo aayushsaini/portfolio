@@ -1,19 +1,21 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { BlogPost } from '../types'
 import { Calendar, Clock, ChevronRight } from 'lucide-react'
 
 interface BlogListProps {
   posts: BlogPost[]
-  onSelectPost: (post: BlogPost) => void
 }
 
-export const BlogList: React.FC<BlogListProps> = ({ posts, onSelectPost }) => {
+export const BlogList: React.FC<BlogListProps> = ({ posts }) => {
+  const navigate = useNavigate()
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {posts.map((post) => (
         <article
           key={post.id}
-          onClick={() => onSelectPost(post)}
+          onClick={() => navigate(`/journal/${post.id}`)}
           className="group cursor-pointer flex flex-col gap-4"
         >
           <div className="overflow-hidden rounded-2xl aspect-[16/10] bg-zinc-900 border border-white/5 relative">

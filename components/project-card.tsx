@@ -1,16 +1,18 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { Project } from '../types'
 import { ArrowUpRight } from 'lucide-react'
 
 interface ProjectCardProps {
   project: Project
-  onClick?: (project: Project) => void
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const navigate = useNavigate()
+
   return (
     <div
-      onClick={() => onClick && onClick(project)}
+      onClick={() => navigate(`/work/${project.id}`)}
       className="group relative w-full h-[450px] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/5 transition-transform duration-500 hover:scale-[1.02] cursor-pointer"
     >
       {/* Background Image with Overlay */}
