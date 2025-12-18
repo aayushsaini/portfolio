@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react'
+import { Menu, X, Github, Linkedin, Mail, Download } from 'lucide-react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { Home } from './pages/home'
 import { Work } from './pages/work'
@@ -9,7 +9,6 @@ import { About } from './pages/about'
 import { Contact } from './pages/contact'
 import { ProjectDetailPage } from './pages/project-detail-page'
 import { BlogPostPage } from './pages/blog-post-page'
-import { AIChat } from './components/ai-chat'
 import { ScrollToTop } from './components/scroll-to-top'
 import { cn } from './lib/utils'
 
@@ -174,8 +173,18 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 </div>
             </footer>
 
-            {/* AI Assistant */}
-            <AIChat />
+            {/* Resume Download Button */}
+            <a
+                href="https://drive.google.com/file/d/1pMxJG9A3y5YPk5R-FFms3BfnaYp3HcI_/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="fixed bottom-8 right-8 z-50 group"
+            >
+                <div className="bg-white text-black p-4 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-110 flex items-center gap-3">
+                    <Download className="w-5 h-5" />
+                    <span className="font-medium text-sm hidden md:inline-block">Resume</span>
+                </div>
+            </a>
         </div>
     )
 }
