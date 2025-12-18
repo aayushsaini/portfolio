@@ -29,10 +29,10 @@ export const Home: React.FC = () => {
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_60%,transparent_100%)] pointer-events-none"></div>
             </div>
 
-            <section className="min-h-screen flex flex-col justify-center px-6 pt-20 relative z-10 pointer-events-none">
+            <section className="min-h-screen flex flex-col justify-center pt-20 relative z-10 pointer-events-none">
                 <motion.div
                     className={cn(
-                        "max-w-7xl mx-auto w-full relative pointer-events-auto transition-opacity duration-500",
+                        "max-w-7xl mx-auto w-full relative pointer-events-auto transition-opacity duration-500 px-6",
                         heroScrolled ? "opacity-0" : "opacity-100"
                     )}
                     style={{ y: heroY }}

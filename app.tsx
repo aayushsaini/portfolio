@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
-import { Menu, X, Github, Linkedin, Mail, Download } from 'lucide-react'
+import { Menu, X, Github, Linkedin, Mail, FileText } from 'lucide-react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { Home } from './pages/home'
 import { Work } from './pages/work'
@@ -84,9 +84,53 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
                         {/* Integrated Pulse Dot & Clock */}
                         <div className="hidden sm:flex items-center gap-3 pl-4 border-white/10">
-                            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
-                            <span className="text-[10px] text-zinc-400 font-medium tracking-[0.2em] uppercase">
+                            <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+                            <span className="text-[12px] text-zinc-400 font-medium tracking-[0.2em] uppercase">
                                 {formatTime(currentTime)} IST
+                            </span>
+                            <span className="ml-2 text-[0.8em] relative group cursor-default">
+                                {(() => {
+                                    const hours = currentTime.getHours()
+                                    const day = currentTime.getDay()
+
+                                    if (day === 0) return '🏖️'
+                                    if (day === 6) return '🍻'
+
+                                    if (hours >= 6 && hours < 7) return '🌅'
+                                    if (hours >= 7 && hours < 10) return '🥣'
+                                    if (hours >= 10 && hours < 13) return '🧑‍💻'
+                                    if (hours >= 13 && hours < 15) return '🍕'
+                                    if (hours >= 15 && hours < 16) return '📅'
+                                    if (hours >= 16 && hours < 18) return '🧑‍💻'
+                                    if (hours >= 18 && hours < 19) return '🚌'
+                                    if (hours >= 19 && hours < 20) return '🍔'
+                                    if (hours >= 20 && hours < 22) return '📺'
+                                    if (hours >= 22 || hours < 6) return '😴'
+
+                                    return ''
+                                })()}
+                                <span className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-max px-2 py-1 bg-zinc-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                                    {(() => {
+                                        const hours = currentTime.getHours()
+                                        const day = currentTime.getDay()
+
+                                        if (day === 0) return 'Sundaying, chill day!!'
+                                        if (day === 6) return 'Saturday, party time!!'
+
+                                        if (hours >= 6 && hours < 7) return 'Sunrise, good morning!!'
+                                        if (hours >= 7 && hours < 10) return 'Breakfast'
+                                        if (hours >= 10 && hours < 13) return 'Coding hours'
+                                        if (hours >= 13 && hours < 15) return 'Lunch'
+                                        if (hours >= 15 && hours < 16) return 'Attending Meetings'
+                                        if (hours >= 16 && hours < 18) return 'Work hours'
+                                        if (hours >= 18 && hours < 19) return 'Commuting'
+                                        if (hours >= 19 && hours < 20) return 'Having dinner'
+                                        if (hours >= 20 && hours < 22) return 'Likely watching a movie or YouTube'
+                                        if (hours >= 22 || hours < 6) return 'Probably sleeping...'
+
+                                        return ''
+                                    })()}
+                                </span>
                             </span>
                         </div>
                     </div>
@@ -152,12 +196,12 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </main>
 
             {/* Footer */}
-            <footer className="py-20 border-t border-white/10 bg-zinc-950">
+            <footer className="py-20 border-t border-white/10 bg-zinc-950 relative z-20">
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
                     <div className="flex flex-col gap-4">
                         <div className="text-2xl font-bold tracking-tighter">Aayush Saini.</div>
                         <div className="text-zinc-500 text-sm max-w-sm">
-                            Engineering intelligent enterprise solutions and cinematic user experiences.
+                            Engineering solutions and remarkable user experiences.
                         </div>
                     </div>
                     <div className="flex flex-col md:items-end gap-6">
@@ -180,9 +224,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 rel="noopener noreferrer"
                 className="fixed bottom-8 right-8 z-50 group"
             >
-                <div className="bg-white text-black p-4 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-110 flex items-center gap-3">
-                    <Download className="w-5 h-5" />
-                    <span className="font-medium text-sm hidden md:inline-block">Resume</span>
+                <div className="bg-white text-black p-4 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:scale-110 flex items-center overflow-hidden">
+                    <FileText className="w-5 h-5 flex-shrink-0" />
+                    <span className="font-medium text-sm whitespace-nowrap max-w-0 group-hover:max-w-xs transition-all duration-500 overflow-hidden">&nbsp;&nbsp;View Resume</span>
                 </div>
             </a>
         </div>
