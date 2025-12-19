@@ -16,8 +16,17 @@ import { cn } from './lib/utils'
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [currentTime, setCurrentTime] = useState(new Date())
+    const [scrolled, setScrolled] = useState(false)
     const location = useLocation()
     const { theme, toggleTheme } = useTheme()
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50)
+        }
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -53,7 +62,12 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <div className="min-h-screen bg-white dark:bg-black text-zinc-900 dark:text-white selection:bg-blue-500/30 transition-colors duration-300">
             {/* Premium Apple-style Nav */}
             <nav
-                className="fixed top-0 left-0 right-0 z-40 py-4 bg-white/90 dark:bg-black/90 border-b border-zinc-200/50 dark:border-white/10 backdrop-blur-xl"
+                className={cn(
+                    "fixed top-0 left-0 right-0 z-40 py-4 transition-all duration-300",
+                    scrolled
+                        ? "bg-white/90 dark:bg-black/90 border-b border-zinc-200/50 dark:border-white/10 backdrop-blur-xl"
+                        : "bg-transparent border-b border-transparent"
+                )}
             >
                 <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
                     <div className="flex items-center gap-4 z-50">
@@ -125,7 +139,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                                 to={item.path}
                                 className={cn(
                                     "text-xs font-medium tracking-widest uppercase transition-all duration-300 relative group",
-                                    isActive(item.path) ? 'text-white' : 'text-zinc-500 hover:text-white'
+                                    isActive(item.path)
+                                        ? 'text-zinc-900 dark:text-white'
+                                        : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-white'
                                 )}
                             >
                                 {item.label}
