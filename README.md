@@ -1,20 +1,53 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Aayush Saini - Portfolio
 
-# Run and deploy your AI Studio app
+A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS featuring smooth animations and light/dark mode support.
 
-This contains everything you need to run your app locally.
+**🌐 Live:** [asaini.netlify.app](https://asaini.netlify.app)
 
-View your app in AI Studio: https://ai.studio/apps/drive/15IPnGodzhIjS0NZe_IfPAh9Z_0ApgOEe
+## ✨ Features
 
-## Run Locally
+- **Light/Dark Mode** - System preference detection + manual toggle with localStorage persistence
+- **Smooth Animations** - Framer Motion powered transitions and scroll-based effects
+- **Responsive Design** - Mobile-first approach with premium UI/UX
+- **React Router** - Client-side routing for seamless navigation
+- **Glassmorphism UI** - Modern frosted glass effects with backdrop blur
 
-**Prerequisites:**  Node.js
+## 🛠️ Tech Stack
 
+- **Framework:** React 18 + TypeScript
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Routing:** React Router DOM
+- **Icons:** Lucide React
+- **Build:** Vite
+- **Deployment:** Netlify
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 📁 Project Structure
+
+```
+├── app.tsx              # Main app with layout and routing
+├── pages/               # Page components (Home, Work, Journal, About, Contact)
+├── components/          # Reusable UI components
+├── lib/                 # Utilities (cn, theme-context)
+├── constants.ts         # Projects, blog posts, and content data
+└── types.ts             # TypeScript interfaces
+```
+
+## 🚀 Run Locally
+
+**Prerequisites:** Node.js 18+
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## 📄 License
+
+MIT © Aayush Saini
