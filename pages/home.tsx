@@ -32,8 +32,8 @@ export const Home: React.FC = () => {
             <section className="min-h-screen flex flex-col justify-center pt-20 relative z-10 pointer-events-none">
                 <motion.div
                     className={cn(
-                        "max-w-7xl mx-auto w-full relative pointer-events-auto px-6",
-                        heroScrolled ? "opacity-0 transition-opacity duration-700" : "opacity-100"
+                        "max-w-7xl mx-auto w-full relative pointer-events-auto px-6 transition-opacity duration-700",
+                        heroScrolled ? "opacity-0" : "opacity-100"
                     )}
                     style={{ y: heroY }}
                 >
