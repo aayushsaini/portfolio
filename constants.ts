@@ -1,7 +1,7 @@
 
 import { Project, BlogPost } from './types'
 
-export const HERO_TITLE = 'Engineering Dreams.'
+export const HERO_TITLE = 'Engineering          Dreams.'
 export const HERO_SUBTITLE = 'Software Engineer at BCG. Specializing in Agentic AI, High-Performance React Architectures, and Cloud-Native Solutions.'
 
 export const PROJECTS: Project[] = [

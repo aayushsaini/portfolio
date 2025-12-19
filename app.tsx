@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
-import { Menu, X, Github, Linkedin, Mail, FileText } from 'lucide-react'
+import { Menu, X, Github, Linkedin, Mail, FileText, Sun, Moon } from 'lucide-react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { Home } from './pages/home'
 import { Work } from './pages/work'
@@ -10,12 +10,14 @@ import { Contact } from './pages/contact'
 import { ProjectDetailPage } from './pages/project-detail-page'
 import { BlogPostPage } from './pages/blog-post-page'
 import { ScrollToTop } from './components/scroll-to-top'
+import { ThemeProvider, useTheme } from './lib/theme-context'
 import { cn } from './lib/utils'
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [currentTime, setCurrentTime] = useState(new Date())
     const location = useLocation()
+    const { theme, toggleTheme } = useTheme()
 
     const { scrollY } = useScroll()
     const navBackground = useTransform(
@@ -61,7 +63,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     ]
 
     return (
-        <div className="min-h-screen bg-black text-white selection:bg-blue-500/30">
+        <div className="min-h-screen bg-white dark:bg-black text-zinc-900 dark:text-white selection:bg-blue-500/30 transition-colors duration-300">
             {/* Premium Apple-style Nav */}
             <motion.nav
                 style={{
@@ -88,7 +90,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                             <span className="text-[12px] text-zinc-400 font-medium tracking-[0.2em] uppercase">
                                 {formatTime(currentTime)} IST
                             </span>
-                            <span className="ml-2 text-[0.8em] relative group cursor-default">
+                            {/* <span className="ml-2 text-[0.8em] relative group cursor-default">
                                 {(() => {
                                     const hours = currentTime.getHours()
                                     const day = currentTime.getDay()
@@ -131,7 +133,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                                         return ''
                                     })()}
                                 </span>
-                            </span>
+                            </span> */}
                         </div>
                     </div>
 
@@ -153,6 +155,18 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                                 )}></span>
                             </Link>
                         ))}
+                        {/* Theme Toggle */}
+                        <button
+                            onClick={toggleTheme}
+                            className="p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+                            aria-label="Toggle theme"
+                        >
+                            {theme === 'dark' ? (
+                                <Sun className="w-4 h-4 text-zinc-400 hover:text-zinc-900 dark:hover:text-white" />
+                            ) : (
+                                <Moon className="w-4 h-4 text-zinc-600 hover:text-zinc-900" />
+                            )}
+                        </button>
                     </div>
 
                     {/* Mobile Menu Toggle */}
@@ -173,7 +187,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="fixed inset-0 z-30 bg-black flex items-center justify-center"
+                        className="fixed inset-0 z-30 bg-white dark:bg-black flex items-center justify-center"
                     >
                         <div className="flex flex-col gap-8 text-center">
                             {navItems.map(item => (
@@ -181,7 +195,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                                     key={item.path}
                                     to={item.path}
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="text-4xl font-bold text-zinc-300 hover:text-white transition-colors"
+                                    className="text-4xl font-bold text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-colors"
                                 >
                                     {item.label}
                                 </Link>
@@ -196,19 +210,19 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </main>
 
             {/* Footer */}
-            <footer className="py-20 border-t border-white/10 bg-zinc-950 relative z-20">
+            <footer className="py-20 border-t border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-950 relative z-20">
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
                     <div className="flex flex-col gap-4">
-                        <div className="text-2xl font-bold tracking-tighter">Aayush Saini.</div>
+                        <div className="text-2xl font-bold tracking-tighter text-zinc-900 dark:text-white">Aayush Saini.</div>
                         <div className="text-zinc-500 text-sm max-w-sm">
                             Engineering solutions and remarkable user experiences.
                         </div>
                     </div>
                     <div className="flex flex-col md:items-end gap-6">
                         <div className="flex gap-8">
-                            <a href="https://github.com/aayush-saini" className="text-zinc-400 hover:text-white transition-all hover:scale-110"><Github className="w-5 h-5" /></a>
-                            <a href="https://www.linkedin.com/in/aayush-saini" className="text-zinc-400 hover:text-white transition-all hover:scale-110"><Linkedin className="w-5 h-5" /></a>
-                            <a href="mailto:aayush.r98@gmail.com" className="text-zinc-400 hover:text-white transition-all hover:scale-110"><Mail className="w-5 h-5" /></a>
+                            <a href="https://github.com/aayush-saini" className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all hover:scale-110"><Github className="w-5 h-5" /></a>
+                            <a href="https://www.linkedin.com/in/aayush-saini" className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all hover:scale-110"><Linkedin className="w-5 h-5" /></a>
+                            <a href="mailto:aayush.r98@gmail.com" className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all hover:scale-110"><Mail className="w-5 h-5" /></a>
                         </div>
                         <div className="text-zinc-600 text-[10px] tracking-[0.2em] uppercase">
                             © {new Date().getFullYear()} DESIGNED IN THE FUTURE.
@@ -224,7 +238,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 rel="noopener noreferrer"
                 className="fixed bottom-8 right-8 z-50 group"
             >
-                <div className="bg-white text-black p-4 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:scale-110 flex items-center overflow-hidden">
+                <div className="bg-zinc-900 dark:bg-white text-white dark:text-black p-4 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:scale-110 flex items-center overflow-hidden">
                     <FileText className="w-5 h-5 flex-shrink-0" />
                     <span className="font-medium text-sm whitespace-nowrap max-w-0 group-hover:max-w-xs transition-all duration-500 overflow-hidden">&nbsp;&nbsp;View Resume</span>
                 </div>
@@ -235,20 +249,22 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
 const App: React.FC = () => {
     return (
-        <BrowserRouter>
-            <ScrollToTop />
-            <Layout>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/work" element={<Work />} />
-                    <Route path="/work/:id" element={<ProjectDetailPage />} />
-                    <Route path="/journal" element={<Journal />} />
-                    <Route path="/journal/:id" element={<BlogPostPage />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/contact" element={<Contact />} />
-                </Routes>
-            </Layout>
-        </BrowserRouter>
+        <ThemeProvider>
+            <BrowserRouter>
+                <ScrollToTop />
+                <Layout>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/work" element={<Work />} />
+                        <Route path="/work/:id" element={<ProjectDetailPage />} />
+                        <Route path="/journal" element={<Journal />} />
+                        <Route path="/journal/:id" element={<BlogPostPage />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/contact" element={<Contact />} />
+                    </Routes>
+                </Layout>
+            </BrowserRouter>
+        </ThemeProvider>
     )
 }
 

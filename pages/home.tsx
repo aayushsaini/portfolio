@@ -21,12 +21,12 @@ export const Home: React.FC = () => {
 
     return (
         <div className="relative w-full">
-            <div className="fixed inset-0 w-full h-full overflow-hidden bg-black z-0">
-                <div className="absolute top-[-10%] left-[-20%] w-[50vw] h-[50vw] bg-indigo-600/40 rounded-full mix-blend-screen filter blur-[100px] animate-blob"></div>
-                <div className="absolute top-[10%] right-[-20%] w-[40vw] h-[40vw] bg-purple-600/40 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000"></div>
-                <div className="absolute bottom-[-20%] left-[10%] w-[50vw] h-[50vw] bg-blue-600/40 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-4000"></div>
+            <div className="fixed inset-0 w-full h-full overflow-hidden bg-zinc-100 dark:bg-black z-0">
+                <div className="absolute top-[-10%] left-[-20%] w-[50vw] h-[50vw] bg-indigo-400/30 dark:bg-indigo-600/40 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob"></div>
+                <div className="absolute top-[10%] right-[-20%] w-[40vw] h-[40vw] bg-purple-400/30 dark:bg-purple-600/40 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000"></div>
+                <div className="absolute bottom-[-20%] left-[10%] w-[50vw] h-[50vw] bg-blue-400/30 dark:bg-blue-600/40 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob animation-delay-4000"></div>
 
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_60%,transparent_100%)] pointer-events-none"></div>
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_60%,transparent_100%)] pointer-events-none"></div>
             </div>
 
             <section className="min-h-screen flex flex-col justify-center pt-20 relative z-10 pointer-events-none">
@@ -38,7 +38,7 @@ export const Home: React.FC = () => {
                     style={{ y: heroY }}
                 >
                     <div className="overflow-hidden">
-                        <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white mb-8 leading-[0.9]">
+                        <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-zinc-900 dark:text-white mb-8 leading-[0.9]">
                             {HERO_TITLE.split(' ').map((word, i) => (
                                 <motion.span
                                     key={i}
@@ -58,7 +58,7 @@ export const Home: React.FC = () => {
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                            className="text-xl md:text-3xl text-zinc-400 max-w-3xl font-light leading-relaxed mb-12"
+                            className="text-xl md:text-3xl text-zinc-600 dark:text-zinc-400 max-w-3xl font-light leading-relaxed mb-12"
                         >
                             {HERO_SUBTITLE}
                         </motion.p>
@@ -72,14 +72,14 @@ export const Home: React.FC = () => {
                     >
                         <button
                             onClick={() => navigate('/work')}
-                            className="group relative px-8 py-4 bg-white text-black rounded-full font-medium text-lg hover:scale-105 transition-all duration-300 overflow-hidden"
+                            className="group relative px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-black rounded-full font-medium text-lg hover:scale-105 transition-all duration-300 overflow-hidden"
                         >
                             <span className="relative z-10">View Work</span>
-                            <div className="absolute inset-0 bg-zinc-200 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                            <div className="absolute inset-0 bg-zinc-700 dark:bg-zinc-200 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                         </button>
                         <button
                             onClick={() => navigate('/about')}
-                            className="px-8 py-4 bg-white/5 backdrop-blur-md border border-white/10 text-white rounded-full font-medium text-lg hover:bg-white/10 transition-all duration-300 hover:scale-105"
+                            className="px-8 py-4 bg-black/5 dark:bg-white/5 backdrop-blur-md border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white rounded-full font-medium text-lg hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-300 hover:scale-105"
                         >
                             About Me
                         </button>
@@ -112,8 +112,8 @@ export const Home: React.FC = () => {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="flex justify-between items-end mb-16"
                     >
-                        <h2 className="text-4xl font-bold text-white">Latest Work</h2>
-                        <button onClick={() => navigate('/work')} className="text-blue-500 hover:text-blue-400 transition-colors">View All</button>
+                        <h2 className="text-4xl font-bold text-zinc-900 dark:text-white">Latest Work</h2>
+                        <button onClick={() => navigate('/work')} className="text-blue-600 dark:text-blue-500 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">View All</button>
                     </motion.div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]">
                         <motion.div
@@ -123,9 +123,9 @@ export const Home: React.FC = () => {
                             transition={{ duration: 0.8, delay: 0.1 }}
                             className="md:col-span-2 h-full"
                         >
-                            <div className="h-full rounded-3xl overflow-hidden relative group cursor-pointer border border-white/5 bg-zinc-900/40 backdrop-blur-sm shadow-2xl" onClick={() => navigate(`/work/${PROJECTS[0].id}`)}>
+                            <div className="h-full rounded-3xl overflow-hidden relative group cursor-pointer border border-zinc-200 dark:border-white/5 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm shadow-2xl" onClick={() => navigate(`/work/${PROJECTS[0].id}`)}>
                                 <img src={PROJECTS[0].image} alt={PROJECTS[0].title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-60" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-8 flex flex-col justify-end">
+                                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 dark:from-black via-zinc-900/40 dark:via-black/40 to-transparent p-8 flex flex-col justify-end">
                                     <h3 className="text-3xl font-bold text-white mb-2">{PROJECTS[0].title}</h3>
                                     <p className="text-zinc-300">{PROJECTS[0].description}</p>
                                 </div>
