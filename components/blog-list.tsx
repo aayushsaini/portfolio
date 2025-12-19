@@ -18,7 +18,7 @@ export const BlogList: React.FC<BlogListProps> = ({ posts }) => {
           onClick={() => navigate(`/journal/${post.id}`)}
           className="group cursor-pointer flex flex-col gap-4"
         >
-          <div className="overflow-hidden rounded-2xl aspect-[16/10] bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/5 relative">
+          <div className="overflow-hidden rounded-2xl aspect-[16/10] bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/50 dark:border-white/5 relative">
             <img
               src={post.image}
               alt={post.title}
