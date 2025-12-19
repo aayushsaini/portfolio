@@ -12,8 +12,8 @@ export const Work: React.FC = () => {
                 transition={{ duration: 0.6 }}
                 className="mb-16"
             >
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Selected Work</h2>
-                <p className="text-xl text-zinc-400 max-w-2xl font-light">
+                <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-6">Selected Work</h2>
+                <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl font-light">
                     A collection of projects focusing on high-performance enterprise applications and advanced AI integration.
                 </p>
             </motion.div>

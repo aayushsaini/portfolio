@@ -18,7 +18,7 @@ export const BlogList: React.FC<BlogListProps> = ({ posts }) => {
           onClick={() => navigate(`/journal/${post.id}`)}
           className="group cursor-pointer flex flex-col gap-4"
         >
-          <div className="overflow-hidden rounded-2xl aspect-[16/10] bg-zinc-900 border border-white/5 relative">
+          <div className="overflow-hidden rounded-2xl aspect-[16/10] bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/5 relative">
             <img
               src={post.image}
               alt={post.title}
@@ -36,15 +36,15 @@ export const BlogList: React.FC<BlogListProps> = ({ posts }) => {
               </span>
             </div>
 
-            <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors">
+            <h3 className="text-xl font-semibold text-zinc-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
               {post.title}
             </h3>
 
-            <p className="text-zinc-400 text-sm leading-relaxed line-clamp-2">
+            <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed line-clamp-2">
               {post.excerpt}
             </p>
 
-            <div className="flex items-center text-blue-500 text-sm font-medium pt-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+            <div className="flex items-center text-blue-600 dark:text-blue-500 text-sm font-medium pt-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
               Read Article <ChevronRight className="w-4 h-4 ml-1" />
             </div>
           </div>
