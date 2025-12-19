@@ -66,7 +66,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     "fixed top-0 left-0 right-0 z-40 py-4 transition-all duration-300 backdrop-blur-xl",
                     scrolled
                         ? "bg-white/80 dark:bg-black/80 border-b border-zinc-200/50 dark:border-white/10"
-                        : "bg-white/10 dark:bg-black/10 border-b border-transparent"
+                        : "bg-transparent border-b border-transparent"
                 )}
             >
                 <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
