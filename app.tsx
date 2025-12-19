@@ -19,19 +19,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const location = useLocation()
     const { theme, toggleTheme } = useTheme()
 
-    const { scrollY } = useScroll()
-    const navBackground = useTransform(
-        scrollY,
-        [0, 50],
-        ['rgba(0,0,0,0)', 'rgba(0,0,0,0.8)']
-    )
-    const navBorder = useTransform(
-        scrollY,
-        [0, 50],
-        ['rgba(255,255,255,0)', 'rgba(255,255,255,0.1)']
-    )
-    const navBackdrop = useTransform(scrollY, [0, 50], ['blur(0px)', 'blur(12px)'])
-
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentTime(new Date())
@@ -65,15 +52,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return (
         <div className="min-h-screen bg-white dark:bg-black text-zinc-900 dark:text-white selection:bg-blue-500/30 transition-colors duration-300">
             {/* Premium Apple-style Nav */}
-            <motion.nav
-                style={{
-                    backgroundColor: navBackground,
-                    borderBottomWidth: '1px',
-                    borderColor: navBorder,
-                    backdropFilter: navBackdrop,
-                    WebkitBackdropFilter: navBackdrop,
-                }}
-                className="fixed top-0 left-0 right-0 z-40 transition-none py-4"
+            <nav
+                className="fixed top-0 left-0 right-0 z-40 py-4 bg-white/90 dark:bg-black/90 border-b border-zinc-200/50 dark:border-white/10 backdrop-blur-xl"
             >
                 <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
                     <div className="flex items-center gap-4 z-50">
@@ -177,7 +157,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                         {isMenuOpen ? <X /> : <Menu />}
                     </button>
                 </div>
-            </motion.nav>
+            </nav>
 
             {/* Mobile Menu Overlay */}
             <AnimatePresence>

@@ -140,20 +140,20 @@ export const Home: React.FC = () => {
                                 className="rounded-3xl overflow-hidden relative group cursor-pointer"
                                 onClick={() => navigate('/about')}
                             >
-                                <div className="absolute inset-0 bg-zinc-900/40 border border-white/5 p-8 flex flex-col justify-between hover:bg-zinc-800/60 transition-all duration-500 backdrop-blur-sm shadow-xl group-hover:shadow-2xl">
-                                    <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl -mr-32 -mt-32 transition-colors duration-500 group-hover:bg-blue-600/20"></div>
+                                <div className="absolute inset-0 bg-zinc-100/40 dark:bg-zinc-900/40 border border-zinc-200 dark:border-white/5 p-8 flex flex-col justify-between hover:bg-zinc-200/60 dark:hover:bg-zinc-800/60 transition-all duration-500 backdrop-blur-sm shadow-xl group-hover:shadow-2xl">
+                                    <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 dark:bg-blue-600/10 rounded-full blur-3xl -mr-32 -mt-32 transition-colors duration-500 group-hover:bg-blue-500/20 dark:group-hover:bg-blue-600/20"></div>
                                     <div className="relative z-10">
-                                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                                            <Cpu className="w-6 h-6 text-blue-400" />
+                                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-zinc-300 dark:border-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                                            <Cpu className="w-6 h-6 text-blue-500 dark:text-blue-400" />
                                         </div>
-                                        <h3 className="text-2xl font-bold text-white mb-2">Expertise</h3>
-                                        <p className="text-zinc-400 text-sm leading-relaxed max-w-[80%]">
+                                        <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-2">Expertise</h3>
+                                        <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed max-w-[80%]">
                                             Engineering scalable solutions with a modern, high-performance stack.
                                         </p>
                                     </div>
                                     <div className="flex flex-wrap gap-2 relative z-10">
                                         {['Agentic AI', 'React', 'Azure', 'Python', 'LangChain', 'TypeScript'].map(t => (
-                                            <span key={t} className="text-xs font-medium text-zinc-300 bg-white/5 border border-white/10 rounded-lg px-3 py-2 group-hover:bg-white/10 group-hover:border-white/20 transition-all">
+                                            <span key={t} className="text-xs font-medium text-zinc-700 dark:text-zinc-300 bg-zinc-200/50 dark:bg-white/5 border border-zinc-300 dark:border-white/10 rounded-lg px-3 py-2 group-hover:bg-zinc-300/50 dark:group-hover:bg-white/10 group-hover:border-zinc-400 dark:group-hover:border-white/20 transition-all">
                                                 {t}
                                             </span>
                                         ))}
@@ -169,9 +169,9 @@ export const Home: React.FC = () => {
                                 className="rounded-3xl overflow-hidden relative group cursor-pointer"
                                 onClick={() => navigate('/journal')}
                             >
-                                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20 border border-white/5 p-6 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform backdrop-blur-sm shadow-xl">
-                                    <h3 className="text-2xl font-bold text-white mb-2">Read the Journal</h3>
-                                    <p className="text-zinc-400 text-sm">Insights on AI & Engineering</p>
+                                <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 to-purple-100/20 dark:from-blue-900/20 dark:to-purple-900/20 border border-zinc-200 dark:border-white/5 p-6 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform backdrop-blur-sm shadow-xl">
+                                    <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-2">Read the Journal</h3>
+                                    <p className="text-zinc-600 dark:text-zinc-400 text-sm">Insights on AI & Engineering</p>
                                 </div>
                             </motion.div>
                         </div>
