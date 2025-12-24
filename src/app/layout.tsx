@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { Header } from '@/components/layout/header'
@@ -86,6 +87,7 @@ export default function RootLayout({
                         <ResumeButton />
                     </div>
                 </ThemeProvider>
+                <SpeedInsights />
             </body>
         </html>
     )
