@@ -3,6 +3,10 @@ import { prisma } from '@/lib/prisma'
 import { Plus, Edit } from 'lucide-react'
 import { DeletePostButton } from './delete-button'
 
+// Force dynamic rendering - don't cache this page
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 async function getPosts() {
     try {
         return await prisma.blogPost.findMany({

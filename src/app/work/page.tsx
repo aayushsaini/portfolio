@@ -15,6 +15,10 @@ export const metadata: Metadata = {
     },
 }
 
+// Force dynamic rendering - don't cache this page
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 async function getProjects(): Promise<Project[]> {
     try {
         const dbProjects = await prisma.project.findMany({

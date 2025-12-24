@@ -2,6 +2,10 @@ import { prisma } from '@/lib/prisma'
 import { Briefcase, BookOpen, FileText } from 'lucide-react'
 import Link from 'next/link'
 
+// Force dynamic rendering - don't cache this page
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 async function getStats() {
     try {
         const [projectCount, postCount, pageCount] = await Promise.all([
