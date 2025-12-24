@@ -15,9 +15,8 @@ export const metadata: Metadata = {
     },
 }
 
-// Force dynamic rendering - don't cache this page
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+// Revalidate every 60 seconds (ISR) - fast navigation with fresh-ish data
+export const revalidate = 60
 
 async function getPosts(): Promise<BlogPost[]> {
     try {
