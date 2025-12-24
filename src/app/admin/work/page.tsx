@@ -3,6 +3,10 @@ import { prisma } from '@/lib/prisma'
 import { Plus, Edit, Trash2 } from 'lucide-react'
 import { DeleteProjectButton } from './delete-button'
 
+// Force dynamic rendering - don't cache this page
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 async function getProjects() {
     try {
         return await prisma.project.findMany({

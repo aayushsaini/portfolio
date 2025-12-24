@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     },
 }
 
+// Revalidate every 60 seconds (ISR) - fast navigation with fresh-ish data
+export const revalidate = 60
+
 async function getPosts(): Promise<BlogPost[]> {
     try {
         const dbPosts = await prisma.blogPost.findMany({
