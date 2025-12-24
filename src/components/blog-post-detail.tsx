@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { BlogPost } from '@/types'
 import { ArrowLeft, Share2, Clock, Calendar } from 'lucide-react'
+import { MarkdownRenderer } from '@/components/markdown-renderer'
 
 interface BlogPostDetailProps {
     post: BlogPost
@@ -54,13 +55,10 @@ export function BlogPostDetail({ post }: BlogPostDetailProps) {
                     />
                 </div>
 
-                <div className="prose prose-lg max-w-none text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                    {post.content.split('\n').map((paragraph, idx) => (
-                        <p key={idx} className="mb-6 text-lg">
-                            {paragraph}
-                        </p>
-                    ))}
-                </div>
+                <MarkdownRenderer
+                    content={post.content}
+                    className="prose prose-lg max-w-none dark:prose-invert prose-zinc"
+                />
 
                 <hr className="my-12 border-zinc-200 dark:border-white/10" />
 

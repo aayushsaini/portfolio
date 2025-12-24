@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, Save } from 'lucide-react'
 import dynamic from 'next/dynamic'
+import { EditorCodePreview } from '@/components/mermaid-preview'
 
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false })
 
@@ -230,6 +231,11 @@ export function ProjectForm({ initialData, projectId }: ProjectFormProps) {
                                 setFormData({ ...formData, challenge: val || '' })
                             }
                             height={200}
+                            previewOptions={{
+                                components: {
+                                    code: EditorCodePreview as React.ComponentType<React.HTMLAttributes<HTMLElement>>,
+                                },
+                            }}
                         />
                     </div>
                 </div>
@@ -245,6 +251,11 @@ export function ProjectForm({ initialData, projectId }: ProjectFormProps) {
                                 setFormData({ ...formData, solution: val || '' })
                             }
                             height={200}
+                            previewOptions={{
+                                components: {
+                                    code: EditorCodePreview as React.ComponentType<React.HTMLAttributes<HTMLElement>>,
+                                },
+                            }}
                         />
                     </div>
                 </div>
@@ -258,6 +269,11 @@ export function ProjectForm({ initialData, projectId }: ProjectFormProps) {
                             value={formData.impact}
                             onChange={(val) => setFormData({ ...formData, impact: val || '' })}
                             height={200}
+                            previewOptions={{
+                                components: {
+                                    code: EditorCodePreview as React.ComponentType<React.HTMLAttributes<HTMLElement>>,
+                                },
+                            }}
                         />
                     </div>
                 </div>

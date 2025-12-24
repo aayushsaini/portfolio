@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, Save } from 'lucide-react'
 import dynamic from 'next/dynamic'
+import { EditorCodePreview } from '@/components/mermaid-preview'
 
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false })
 
@@ -188,6 +189,11 @@ export function PostForm({ initialData, postId }: PostFormProps) {
                         value={formData.content}
                         onChange={(val) => setFormData({ ...formData, content: val || '' })}
                         height={400}
+                        previewOptions={{
+                            components: {
+                                code: EditorCodePreview as React.ComponentType<React.HTMLAttributes<HTMLElement>>,
+                            },
+                        }}
                     />
                 </div>
             </div>
