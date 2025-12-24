@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Project } from '@/types'
 import { ArrowLeft, ExternalLink, Calendar, User, Code2, Award, Zap } from 'lucide-react'
+import { MarkdownRenderer } from '@/components/markdown-renderer'
 
 interface ProjectDetailProps {
     project: Project
@@ -114,9 +115,10 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                                     </span>
                                     The Challenge
                                 </h3>
-                                <p className="text-lg md:text-xl text-zinc-700 dark:text-zinc-300 leading-relaxed font-light">
-                                    {project.challenge}
-                                </p>
+                                <MarkdownRenderer
+                                    content={project.challenge}
+                                    className="prose prose-lg dark:prose-invert prose-zinc max-w-none"
+                                />
                             </section>
                         )}
 
@@ -128,9 +130,10 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                                     </span>
                                     The Solution
                                 </h3>
-                                <p className="text-lg md:text-xl text-zinc-700 dark:text-zinc-300 leading-relaxed font-light">
-                                    {project.solution}
-                                </p>
+                                <MarkdownRenderer
+                                    content={project.solution}
+                                    className="prose prose-lg dark:prose-invert prose-zinc max-w-none"
+                                />
                             </section>
                         )}
 
@@ -142,9 +145,10 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                                     </span>
                                     Key Impact
                                 </h3>
-                                <p className="text-lg md:text-xl text-zinc-700 dark:text-zinc-300 leading-relaxed font-light">
-                                    {project.impact}
-                                </p>
+                                <MarkdownRenderer
+                                    content={project.impact}
+                                    className="prose prose-lg dark:prose-invert prose-zinc max-w-none"
+                                />
                             </section>
                         )}
                     </div>
