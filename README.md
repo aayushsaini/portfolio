@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS featuring smooth animations and light/dark mode support.
 
-**🌐 Live:** [asaini.netlify.app](https://asaini.netlify.app)
+**🌐 Live:** [asaini.netlify.app](https://asaini.vercel.app)
 
 ## ✨ Features
 
